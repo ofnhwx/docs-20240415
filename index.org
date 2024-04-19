@@ -1,0 +1,62 @@
+#+title: 令和のEmacs ~Emacsで行うRails開発~
+#+startup: overview
+
+* 令和の Emacs
+** いつものトレンド
+- [[https://trends.google.co.jp/trends/explore?date=all&geo=JP&q=Emacs,Vim,VSCode,RubyMine&hl=ja][Google Trends]]
+  #+attr_org: :width 600
+  [[./01_google_trends.png]]
+** おすすめはしない
+- 基本 VSCode でいいよ
+- 有料でよいなら RubyMine もいいよ
+- 自分も今から始めるなら Vim を使うかも
+** それでもなぜEmacsを使うのか
+- 慣れている
+- 極限まで自分好みにカスタマイズできる
+- なくならない(たぶん)
+** 令和の Emacs
+*** パッケージ(拡張機能)の管理
+- [[https://github.com/jwiegley/use-package][use-package]] が最初から使える
+- よく使われる拡張は [[https://melpa.org/][MELPA]] にだいたいある
+- ない場合も簡単な設定で github.com 等から簡単にインストール可能
+*** シンプルな拡張の組み合わせ
+たとえばよくある一括で文字列をおきかえたいケース
+
+- consult + vertico :: 候補を絞り込んで表示
+  #+attr_org: :width 600
+  [[./02_consult_vertico.png]]
+- embark(export) :: 絞り込んだ候補を専用のバッファーにエクスポート
+  #+attr_org: :width 600
+  [[./03_embark.png]]
+- grep-mode + wgrep :: 一括で編集して反映・保存
+  #+attr_org: :width 600
+  [[./04_wgrep.png]]
+*** 複雑なところは他に任せる
+**** lsp-mode
+- [[https://emacs-lsp.github.io/lsp-mode/][LSP Mode - LSP support for Emacs]]
+**** copilot
+- [[https://github.com/copilot-emacs/copilot.el][copilot-emacs/copilot.el]]
+**** tree-sitter
+- Emacs 29 からは標準でサポート
+- [[https://github.com/emacs-tree-sitter/elisp-tree-sitter][emacs-tree-sitter/elisp-tree-sitter]] は28以前のバージョン用
+- tree-sitter 対応の ruby-ts-mode と、今まで通りの ruby-mode がある
+  - 両方のモードの共通の継承元として ruby-base-mode がある
+**** flycheck
+- [[https://www.flycheck.org/en/latest/][Flycheck - Syntax checking for GNU Emacs]]
+- 裏で各種の Linter 等を実行してエラーを表示するやつ
+- 今は標準の flymake でよいと思うが移行できてない
+**** apheleia
+- [[https://github.com/radian-software/apheleia][radian-software/apheleia]]
+- 読み方はよく分からない
+- 裏側でコードをフォーマットした後に賢く差分を反映してくれる、らしい
+*** 最初から使いやすいディストリビューションも
+- doom, spacemacs, centaur, etc...
+- https://github.com/emacs-tw/awesome-emacs?tab=readme-ov-file#starter-kit
+** Emacs での Rails 開発
+| タスク管理     | [[https://orgmode.org/ja/][Org Mode]]                 |
+| ワークスペース | tab-bar-mode(標準)       |
+| ソース管理     | magit                    |
+| 開発           | projectile-rails, etc... |
+| テスト         | rspec-mode               |
+| 環境とか       | vterm, prodigy           |
+** おわり
